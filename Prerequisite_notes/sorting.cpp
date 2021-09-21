@@ -1,4 +1,6 @@
 /*
+WARNING : NEVER USE BUBBLE SORT. SELECTION SORT ASWELL.
+
         SORTING
 Why we need sorting?
     - if you got phonebooks, mp3,... you need sorting methods to get organised.

@@ -1,0 +1,3 @@
+/*
+  Use always vector and only pass by reference. Never use pointers.
+*/

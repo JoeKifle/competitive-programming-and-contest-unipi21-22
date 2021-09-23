@@ -34,13 +34,34 @@
 using namespace std;
 
 void printTrappedWater(vector<int> vect){
-  
-    int maxLeft = 0;
-    int maxRight = 0;
     
+    int vectSize = vect.size();
+    int trappedWater = 0;
+    // The left and right end block cannot hold any water.
+    int leftI = 1;
+    int rightI = vectSize-2;
+    // Left and right max
+    int leftMax = vect[0];
+    int rightMax = vect[vectSize-1];
 
+    while(leftI<=rightI){
+        if(leftMax<rightMax){
+            if(vect[leftI]>leftMax){
+                leftMax = vect[leftI];
+            }else{
+                trappedWater+=leftMax-vect[leftI];
+                leftI++;
+            }
+        }else{
 
-
+            if(vect[rightI]>rightMax){
+                rightMax = vect[rightI];
+            }else
+            trappedWater+=rightMax-vect[rightI];
+            rightI--;
+         }
+    }
+    cout<<"Total Trapped Water: "<<trappedWater<<endl;
 }
 
 
@@ -48,10 +69,12 @@ int main(){
 
 
     vector<int> vect;
-    vect.push_back(1);
-    vect.push_back(2);
     vect.push_back(3);
-    vect.push_back(5);
+    vect.push_back(0);
+    vect.push_back(0);
+    vect.push_back(2);
+    vect.push_back(0);
+    vect.push_back(4);
     printTrappedWater(vect);
 
     return 0;
